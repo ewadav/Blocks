@@ -1,0 +1,11 @@
+{
+    "name": "Blocks",
+    "version": "0.0.0",
+    "description": "Turn Based Strategy Game",
+    "dependencies": {
+        "socket.io": "latest",
+        "express": "latest",
+        "redis" : "latest"
+    },
+    "author": "David Ewald and Davinder Saini"
+}
