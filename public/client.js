@@ -8,14 +8,14 @@ var IO = {
 	},
 
 
-
 	bindEvents:  function() {
 		IO.socket.on('connected', IO.onConnected());
 	},
 
 	onConnected: function(data) {
 		console.log('connected');
-	}
+	},
+
 }
 
 
@@ -29,6 +29,7 @@ var App = {
 		App.cacheElements();
 		App.showInitScreen();
 		App.bindEvents();
+		App.addUser();
 
 		//Initialize FastClick
 	},
@@ -40,6 +41,7 @@ var App = {
 		App.$gameArea = $('#gameArea');
 		App.$templateIntroScreen = $('#intro-screen-template').html();
 		App.$temaplateWaitScreen = $('#game-lobby-wait-template').html();
+		App.$userWaitListDiv = $('.user-list');
 	},
 
 	bindEvents: function() {
@@ -49,6 +51,10 @@ var App = {
 	showInitScreen: function() {
 		App.$gameArea.html(App.$templateIntroScreen);
 		console.log('intro template inserted');
+	},
+
+	addUser: function() {
+		socket.emit('addUser', prompt("Whats your name?"));
 	}
 }
 

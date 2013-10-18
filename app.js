@@ -25,10 +25,12 @@ app.configure(function() {
 var server = require('http').createServer(app).listen(8080);
 
 var io = require('socket.io').listen(server);
+var userList = [];
 
 io.set('log level', 1);
 
 io.sockets.on('connection', function(socket) {
 	blocks.initGame(io, socket);
 	console.log(socket.id + ": is connected");
-})
+
+});
