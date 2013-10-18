@@ -1,5 +1,4 @@
 
-//App.init;
 "use strict";
 
 var IO = {
@@ -20,4 +19,39 @@ var IO = {
 	}
 }
 
+
+var App = {
+
+	gameId: 0,
+
+	mySocketId: '',
+
+	init: function() {
+		App.cacheElements();
+		App.showInitScreen();
+		App.bindEvents();
+
+		//Initialize FastClick
+	},
+
+	cacheElements: function() {
+		App.$doc = $(document);
+
+		//Templates
+		App.$gameArea = $('#gameArea');
+		App.$templateIntroScreen = $('#intro-screen').html();
+		App.$temaplateWaitScreen = $('#game-lobby-wait').html();
+	},
+
+	bindEvents: function() {
+		//App.$doc.on('click', '#btn-create-game', App.onJoinClick);
+	},
+
+	showInitScreen: function() {
+		App.$gameArea.html(App.$templateIntroScreen);
+		console.log('intro template inserted');
+	}
+}
+
 IO.init();
+App.init();
