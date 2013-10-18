@@ -1,4 +1,3 @@
-
 "use strict";
 
 var IO = {
@@ -39,8 +38,8 @@ var App = {
 
 		//Templates
 		App.$gameArea = $('#gameArea');
-		App.$templateIntroScreen = $('#intro-screen').html();
-		App.$temaplateWaitScreen = $('#game-lobby-wait').html();
+		App.$templateIntroScreen = $('#intro-screen-template').html();
+		App.$temaplateWaitScreen = $('#game-lobby-wait-template').html();
 	},
 
 	bindEvents: function() {
