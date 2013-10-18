@@ -1,11 +1,18 @@
 // Main Server Logic
 
+// Import express
 var express = require('express');
 
+// Import path module of node
 var path = require('path');
 
+// Instantiate Express server 
 var app = express();
 
+//  Import game logic 
+var blocks = require('./blocks');
+
+// Configure express application
 app.configure(function() {
 
 
@@ -22,5 +29,6 @@ var io = require('socket.io').listen(server);
 io.set('log level', 1);
 
 io.sockets.on('connection', function(socket) {
-	console.log(socket.id + ': Connected to the server');
+	blocks.initGame(io, socket);
+	console.log(socket.id + ": is connected");
 })
