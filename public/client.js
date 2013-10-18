@@ -1,8 +1,8 @@
-IO.init;
+
 //App.init;
+"use strict";
 
 var IO = {
-
 
 	init: function() {
 		IO.socket = io.connect();
@@ -12,10 +12,12 @@ var IO = {
 
 
 	bindEvents:  function() {
-		IO.socket.on('connected', IO.onConnected);
-	}
+		IO.socket.on('connected', IO.onConnected());
+	},
 
-	onConnected: function() {
-		console.log(IO.socket.socketid + ": you have connected");
+	onConnected: function(data) {
+		console.log('connected');
 	}
 }
+
+IO.init();
