@@ -32,5 +32,6 @@ io.set('log level', 1);
 io.sockets.on('connection', function(socket) {
 	blocks.initGame(io, socket);
 	console.log(socket.id + ": is connected");
+	userList.push(socket);
 
 });
