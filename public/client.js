@@ -22,7 +22,7 @@ var IO = {
 var App = {
 
 	gameId: 0,
-
+ 
 	mySocketId: '',
 
 	init: function() {
@@ -45,7 +45,7 @@ var App = {
 	},
 
 	bindEvents: function() {
-		App.$doc.on('click', '#btn-create-game', App.onJoinClick);
+		App.$doc.on('click', '#btn-create-game', App.onCreateClick);
 	},
 
 	showInitScreen: function() {
@@ -54,13 +54,13 @@ var App = {
 	},
 
 	addUser: function() {
-		socket.emit('addUser', prompt("Whats your name?"));
+		IO.socket.emit('addUser', prompt("Whats your name?"));
 	},
 
-	onJoinClick : function() {
+	onCreateClick : function() {
 		App.$gameArea.html(App.$temaplateWaitScreen);
 		console.log('wait template inserted ya dig?');
-		socket.emit('joinRoom');
+		IO.socket.emit('createRoom');
 	}
 }
 
