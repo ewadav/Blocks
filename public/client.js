@@ -45,7 +45,7 @@ var App = {
 	},
 
 	bindEvents: function() {
-		//App.$doc.on('click', '#btn-create-game', App.onJoinClick);
+		App.$doc.on('click', '#btn-create-game', App.onJoinClick);
 	},
 
 	showInitScreen: function() {
@@ -55,6 +55,12 @@ var App = {
 
 	addUser: function() {
 		socket.emit('addUser', prompt("Whats your name?"));
+	},
+
+	onJoinClick : function() {
+		App.$gameArea.html(App.$temaplateWaitScreen);
+		console.log('wait template inserted ya dig?');
+		socket.emit('joinRoom');
 	}
 }
 
