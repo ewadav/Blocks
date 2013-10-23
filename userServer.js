@@ -1,8 +1,14 @@
+var io;
 var num_of_users; 
 var userList = [];
 var open_rooms;
 var nextRoomNumber = 0;
 var maxRoomNumber = 1000000;
+var roomLists = [];
+
+exports.init = function(sio) {
+	io = sio;
+}
 
 exports.addUser = function(socket) {
 	userList.push(socket);
@@ -22,12 +28,27 @@ exports.getNextRoomNumber = function() {
 exports.removeUser = function(socket) {
 	num_of_users -= 1;
 }
+
 exports.addNumRooms = function() {
 	open_rooms += 1;
 }
+
 exports.subtractNumRooms = function() {
 	open_rooms -= 1;
 }
+
+exports.socketJoinRoom = function(socket, roomId) {
+
+}
+
+var containsRoom = function(roomId) {
+	for(var i = 0; i < roomLists.length ;i++) {
+		if(roomLists[i].roomId === roomId) {
+			return 
+		} 
+	}
+}
+
 
 
 
