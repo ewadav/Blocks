@@ -10,8 +10,8 @@ exports.init = function(sio) {
 	io = sio;
 }
 
-exports.addUser = function(socket) {
-	userList.push(socket);
+exports.addUser = function(username) {
+	userList.push(username);
 	num_of_users += 1;
 }
 

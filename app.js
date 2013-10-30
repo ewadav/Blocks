@@ -37,7 +37,7 @@ var userServer = require('./userServer').init(io);
 io.set('log level', 1);
 
 io.sockets.on('connection', function(socket) {
-	serverStats.adduser(socket);
+	userServer.addUser(socket.username);
 	blocks.initGame(io, socket);
 	alfonso.log('info', socket.id + ": is connected");
 	socket.join('waitroom');
