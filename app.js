@@ -10,10 +10,10 @@ var path = require('path');
 var app = express();
 
 //  Import game logic 
-var blocks = require('./blocks');
+var blocks = require('./game/blocks');
 
 // Import the Alfonso Logger
-var alfonso = require('./alfonso');
+var alfonso = require('./server/alfonso');
 
 // Configure express application
 app.configure(function() {
@@ -32,7 +32,7 @@ var server = require('http').createServer(app).listen(8080);
 var io = require('socket.io').listen(server);
 
 // Import user/game-lobby logic
-var userServer = require('./userServer').init(io);
+var userServer = require('./server/userServer').init(io);
 
 io.set('log level', 1);
 
