@@ -12,6 +12,9 @@ var app = express();
 //  Import game logic 
 var blocks = require('./blocks');
 
+// Import the Alfonso Logger
+var alfonso = require('./alfonso');
+
 // Configure express application
 app.configure(function() {
 
@@ -36,7 +39,7 @@ io.set('log level', 1);
 io.sockets.on('connection', function(socket) {
 	serverStats.adduser(socket);
 	blocks.initGame(io, socket);
-	console.log(socket.id + ": is connected");
+	alfonso.log('info', socket.id + ": is connected");
 	socket.join('waitroom');
 });
 
