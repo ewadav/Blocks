@@ -32,14 +32,21 @@ var server = require('http').createServer(app).listen(8080);
 var io = require('socket.io').listen(server);
 
 // Import user/game-lobby logic
-var userServer = require('./server/userServer').init(io);
+var userServer = require('./server/userServer').init(io, alfonso);
+console.log(userServer);
 
 io.set('log level', 1);
 
 io.sockets.on('connection', function(socket) {
-	userServer.addUser(socket.username);
 	blocks.initGame(io, socket);
 	alfonso.log('info', socket.id + ": is connected");
 	socket.join('waitroom');
+
+	socket.on('addUser', function(username) {
+		socket.username = username;
+		userServer.addUser(socket.username);
+		alfonso.log('info', username + ": added to stack");
+	});
+
 });
 

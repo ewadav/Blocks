@@ -10,7 +10,7 @@
 
  exports.log = function(level, message) {
  	var levelIndex;
- 	for (var i = 0; i < levels.length(); i++) {
+ 	for (var i = 0; i < levels.length; i++) {
  		if(levels[i] === level) {
  			levelIndex = i;
  		} 	
@@ -23,6 +23,5 @@
 
  	// for debug purposes, will be loggin to above files levelFiles[levelIndex]
  	console.log(level + ': ' + message);
-
-
+ 	console.log('alfonso doing some loggin here');
  }

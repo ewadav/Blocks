@@ -5,14 +5,19 @@ var open_rooms;
 var nextRoomNumber = 0;
 var maxRoomNumber = 1000000;
 var roomLists = [];
+var alfonso;
 
-exports.init = function(sio) {
+
+exports.init = function(sio, alfonsoo) {
 	io = sio;
+	alfonso = alfonsoo;
+
 }
 
 exports.addUser = function(username) {
 	userList.push(username);
 	num_of_users += 1;
+	alfonso.log('info', username + ": has connected");
 }
 
 exports.getNextRoomNumber = function() {
